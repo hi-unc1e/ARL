@@ -4,6 +4,22 @@
 [![Github Issues](https://img.shields.io/github/issues/TophantTechnology/ARL.svg)](https://github.com/TophantTechnology/ARL/issues)
 [![Github Stars](https://img.shields.io/github/stars/TophantTechnology/ARL.svg)](https://github.com/TophantTechnology/ARL/stargazers)
 
+### TODO
+
+个人二开的待办事项，不构成任何建议或暗示，谢谢。
+
+- 核心逻辑
+  - 添加域名的数据源（慢慢来）
+  - Alternation
+  - 优化fileLeak核心逻辑
+    - 对目标环境针对性的字典
+    - 优化字典
+- 视图
+  - 全局的一个看板
+  - 多个seed，在同一看板下展示
+  - status/workflow，参考Pentest.ws
+
+
 资产灯塔，不仅仅是域名收集
 
 ### 简介
