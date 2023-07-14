@@ -1,6 +1,6 @@
 import re
 from bson import ObjectId
-from flask_restplus import Resource, Api, reqparse, fields, Namespace
+from flask_restx import Resource, Api, reqparse, fields, Namespace
 from app import utils
 from app.utils import get_logger, auth
 from . import base_query_fields, ARLResource, get_arl_parser
@@ -114,7 +114,7 @@ class ARLAssetDomain(ARLResource):
             'search_engines': False,
             'ssl_cert': False,
             'fofa_search': False,
-            'crtsh_search': False,
+            'dns_query_plugin': False,
             'related_scope_id': scope_id
         }
 

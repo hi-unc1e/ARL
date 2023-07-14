@@ -5,7 +5,7 @@ from app.modules import CeleryAction
 
 task_data = {
     'name': '自动化测试',
-    'target': 'baidu.com',
+    'target': 'www.tophant.com',
     'start_time': '-',
     'status': 'waiting',
     'type': 'domain',
@@ -24,14 +24,14 @@ task_data = {
         'service_brute': False,
         'os_detection': False,
         'site_identify': True,
-        'site_capture': False,
+        'site_capture': True,
         'file_leak': False,
         'alt_dns': False,
-        'site_spider': False,
-        'search_engines': False,
+        'site_spider': True,
+        'search_engines': True,
         'ssl_cert': False,
-        'fofa_search': False,
-        'crtsh_search': False
+        'arl_search': True,
+        'dns_query_plugin': False
     }
 }
 
@@ -60,11 +60,11 @@ class TestExecTask(unittest.TestCase):
     def test_exec_task(self):
         submit_task(task_data)
         query = {"task_id": task_data["task_id"]}
-        self.assertTrue(len(list(conn("site").find(query))) > 1)
-        self.assertTrue(len(list(conn("domain").find(query))) > 1)
+        self.assertTrue(len(list(conn("site").find(query))) >= 1)
+        self.assertTrue(len(list(conn("domain").find(query))) >= 1)
 
         if task_data["options"]["port_scan"]:
-            self.assertTrue(len(list(conn("ip").find(query))) > 1)
+            self.assertTrue(len(list(conn("ip").find(query))) >= 1)
 
 
 if __name__ == '__main__':

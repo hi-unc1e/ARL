@@ -27,5 +27,12 @@
 .waf.taobao.com
 .vs.tencent.com
 .dev.tencent.com
+.code.tencent.com
 .tc.qq.com
 media.gamer.qq.com
+.ccs.tencent-cloud.com
+.peck.gamebonfire.com
+.mail.qq.com
+.meeting.tencent.com
+.txmeeting.tencent.com
+.powerfl.qq.com

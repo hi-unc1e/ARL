@@ -1,7 +1,7 @@
 #coding: utf-8
 
 from flask import  make_response
-from flask_restplus import Resource, Namespace
+from flask_restx import Resource, Namespace
 from openpyxl import Workbook
 from bson import ObjectId
 import re
@@ -236,7 +236,7 @@ class SaveTask(object):
                     row.append("")
                     row.append("")
 
-                row.append(" \r\n".join(item["domain"]))
+                row.append(" \r\n".join(item.get("domain", [])))
 
                 osname = ""
                 if item.get("os_info"):
@@ -371,6 +371,9 @@ class SaveTask(object):
 
         if re.findall(r"\b\d+\.\d+\.\d+\.\d+", domain):
             self.is_ip_task = True
+        else:
+            if task_data.get("type", "") == "ip":
+                self.is_ip_task = True
 
         self.build_site_xl()
         self.build_ip_xl()

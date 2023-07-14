@@ -1,7 +1,7 @@
 from bson import ObjectId
 import time
 from datetime import datetime
-from flask_restplus import fields, Namespace
+from flask_restx import fields, Namespace
 from app.utils import get_logger, auth
 from app import utils
 from app.modules import ErrorMsg, TaskTag, TaskScheduleStatus
@@ -74,14 +74,23 @@ class ARLTaskScheduleResult(ARLResource):
             return utils.build_ret(ErrorMsg.TaskTagInvalid, {"task_tag": task_tag})
 
         try:
-            ip_list, domain_list = task.get_ip_domain_list(target)
-            if not ip_list and not domain_list:
-                return utils.build_ret(ErrorMsg.TaskTargetIsEmpty, {"target": target})
+            # 资产发现任务
+            if task_tag == TaskTag.TASK:
+                ip_list, domain_list = task.get_ip_domain_list(target)
+                if not ip_list and not domain_list:
+                    return utils.build_ret(ErrorMsg.TaskTargetIsEmpty, {"target": target})
+
+                target = "{} {}".format(" ".join(ip_list), " ".join(domain_list))
+
+            # 风险巡航任务, 目标可以是URL
+            if task_tag == TaskTag.RISK_CRUISING:
+                targets = task.target2list(target)
+                if not targets:
+                    return utils.build_ret(ErrorMsg.TaskTargetIsEmpty, {"target": target})
+                target = " ".join(targets)
 
         except Exception as e:
             return utils.build_ret(ErrorMsg.Error, {"error": str(e)})
-
-        target = "{} {}".format(" ".join(ip_list), " ".join(domain_list))
 
         data = {
             "name": name,

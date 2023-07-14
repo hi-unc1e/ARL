@@ -12,7 +12,7 @@ RUN rpm -vhU https://nmap.org/dist/nmap-7.80-1.x86_64.rpm
 
 RUN yum install python36-devel gcc-c++ -y
 
-RUN yum install nginx -y
+RUN yum install nginx unzip wget -y
 
 COPY app/ app/
 
@@ -55,5 +55,16 @@ RUN pip3.6 install -r requirements.txt
 WORKDIR /opt/ARL-NPoC/
 RUN pip3.6 install -r requirements.txt
 
+
+## 安装nuclei
+RUN wget https://github.com/projectdiscovery/nuclei/releases/download/v2.9.4/nuclei_2.9.4_linux_amd64.zip
+RUN unzip nuclei_2.9.4_linux_amd64.zip && mv nuclei /usr/bin/ && rm -f nuclei_2.9.4_linux_amd64.zip
+RUN nuclei
+
 ## 切换工作目录
 WORKDIR /code
+
+## 自测一下
+RUN cp app/config.yaml.example app/config.yaml
+RUN env FLASK_APP=app.main:arl_app python3.6 -m flask routes
+RUN python3 -m app.celerytask

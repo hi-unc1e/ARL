@@ -1,7 +1,0 @@
-google
-youtube
-facebook
-openvpn
-webproxy
-wire.comm
-69.muc

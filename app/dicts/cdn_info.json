@@ -118,7 +118,8 @@
             "yundunwaf1.com",
             "yundunwaf2.com",
             "cdngslb.com",
-            "kunluncan.com"
+            "kunluncan.com",
+            "alicloudwaf.com"
         ]
     },
     {
@@ -161,14 +162,30 @@
             "wsdvs.com",
             "lxdns.com",
             "wswebcdn.com",
-            "wswebpic.com"
+            "wswebpic.com",
+            "wsssec.com",
+            "wscdns.com",
+            "cdn20.com",
+            "cdn30.com",
+            "ourplat.net",
+            "wsglb0.com",
+            "wscloudcdn.com",
+            "mwcloudcdn.com",
+            "mwcname.com",
+            "chinanetcenter.com",
+            "customcdn.com.cn",
+            "customcdn.cn",
+            "51cdn.com",
+            "speedcdns.com",
+            "wtxcdn.com"
         ]
     },
     {
         "name": "加速乐CDN",
         "cname_domain": [
             "cname.365cyd.cn",
-            "cdn.jiashule.com"
+            "cdn.jiashule.com",
+            "vip.jiasule.org"
         ],
         "ip_cidr": [
             "113.107.238.0/24",
@@ -216,7 +233,7 @@
             "akamaized.net",
             "akamai.net"
         ],
-        "ip_cidr":[
+        "ip_cidr": [
 
         ]
     },
@@ -274,7 +291,8 @@
         "cname_domain": [
             "bsgslb.cn",
             "qingcdn.com",
-            "trpcdn.net"
+            "trpcdn.net",
+            "bsclink.cn"
         ]
     },
     {
@@ -350,6 +368,103 @@
             "360wzws.com",
             "qaxwzws.com",
             "qaxcloudwaf.com"
+        ]
+    },
+    {
+        "name": "安恒玄武盾",
+        "cname_domain": [
+            "saaswaf.com",
+            "dbappwaf.cn"
+        ]
+    },
+    {
+        "name": "奇安信网站卫士",
+        "cname_domain": [
+            "360cloudwaf.com",
+            "360anyu.com",
+            "360safedns.com",
+            "360wzws.com",
+            "qaxwzws.com"
+        ]
+    },
+    {
+        "name": "深信服云盾",
+        "cname_domain": [
+            "sangfordns.com"
+        ]
+    },
+    {
+        "name": "绿盟云 WAF",
+        "cname_domain": [
+            "nscloudwaf.com"
+        ]
+    },
+    {
+        "name": "华为云waf",
+        "cname_domain": [
+            "huaweicloudwaf.com",
+            "huaweicloud.com"
+        ]
+    },
+    {
+        "name":"华为云CDN",
+        "cname_domain": [
+            "cdnhwc1.com",
+            "cdnhwc2.com",
+            "cdnhwc3.com"
+        ]
+    },
+    {
+        "name":"360 云 CDN (由奇安信运营)",
+        "cname_domain": [
+            "qhcdn.com"
+        ]
+    },
+    {
+        "name":"360 云 CDN (由奇虎 360 运营)",
+        "cname_domain": [
+            "qihucdn.com",
+            "60cdn.com"
+        ]
+    },
+    {
+        "name":"七牛云",
+        "cname_domain": [
+            "qbox.me",
+            "qiniu.com",
+            "iniudns.com"
+        ]
+    },
+    {
+        "name":"京东云 CDN",
+        "cname_domain": [
+            "jcloud-cdn.com",
+            "jcloudlb.com",
+            "qianxun.com",
+            "jdcdn.com",
+            "jcloudcs.com"
+        ]
+    },
+    {
+        "name":"腾正安全加速（原 15CDN）",
+        "cname_domain": [
+            "15cdn.com",
+            "tzcdn.cn"
+        ]
+    },
+    {
+        "name":"腾讯云 CDN",
+        "cname_domain": [
+            "cdntip.com",
+            "dnsv1.com",
+            "tencdns.net",
+            "tdnsv5.com"
+        ]
+    },
+    {
+        "name":"蓝盾云CDN",
+        "cname_domain": [
+            "cloudfence.cn"
         ]
     }
 ]
