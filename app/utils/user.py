@@ -11,16 +11,20 @@ def user_login(username = None, password = None):
         return
 
     query = {"username": username, "password": gen_md5(salt + password)}
-
-    if conn_db('user').find_one(query):
-        item = {
+    user = conn_db('user').find_one(query)
+    if user:
+        # 生成新的token
+        new_token = gen_md5(random_choices(50))
+        # 创建一个新的文档，包含用户名和新的token
+        new_document = query.copy()  # 复制查询条件，避免直接修改原始查询
+        new_document["token"] = new_token
+        # 插入新的文档到数据库
+        conn_db('user').insert_one(new_document)
+        return {
             "username": username,
-            "token": gen_md5(random_choices(50)),
-            "type": "login"
-        }
-        conn_db('user').update_one(query, {"$set": {"token": item["token"]}})
-
-        return item
+            "token": new_token,
+            "type": "login" 
+            }
 
 
 def user_login_header():
