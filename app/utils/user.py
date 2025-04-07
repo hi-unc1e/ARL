@@ -18,8 +18,12 @@ def user_login(username = None, password = None):
             "token": gen_md5(random_choices(50)),
             "type": "login"
         }
-        conn_db('user').update_one(query, {"$set": {"token": item["token"]}})
-
+        # conn_db('user').update_one(query, {"$set": {"token": item["token"]}})
+        # 插入新会话到 sessions 集合
+        conn_db('user').insert_one({
+            "token": item["token"],
+            "username": username        
+        })
         return item
 
 
